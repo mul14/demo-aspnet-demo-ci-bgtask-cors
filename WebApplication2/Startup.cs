@@ -31,7 +31,9 @@ namespace WebApplication2
             //services.AddScoped<IStorage, StorageForFile>(); // Same object on sam request
             //services.AddTransient<IStorage, StorageForFile>(); // Always create new object
 
-            services.AddHostedService<DailyGreetings>();
+            //services.AddHostedService<DailyGreetings>();
+
+            services.AddCors();
 
             services.AddControllers();
         }
@@ -43,6 +45,13 @@ namespace WebApplication2
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder =>
+            {
+                builder.AllowAnyOrigin();
+                builder.AllowAnyHeader();
+                builder.AllowCredentials();
+            });
 
             app.UseHttpsRedirection();
 

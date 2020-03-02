@@ -24,12 +24,6 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            Storage.Save();
-
-            Storage.Get();
-
-
-
             return new string[] { "value1", "value2" };
         }
 
